@@ -35,7 +35,7 @@ const FeedbackForm = () => {
     setText(event.target.value);
   };
 
-  const createFeedback = (event) => {
+  const createFeedback = async (event) => {
     event.preventDefault();
 
     if (rating === 0) {
@@ -51,7 +51,7 @@ const FeedbackForm = () => {
     if (feedbackEdit.edit) {
       updateFeedback(feedbackEdit.item.id, newFeedback);
     } else {
-      addFeedback(newFeedback);
+      await addFeedback(newFeedback);
     }
 
     setText('');
